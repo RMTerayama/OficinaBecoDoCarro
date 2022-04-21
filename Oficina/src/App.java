@@ -14,42 +14,62 @@ public class App {
     public static void main(String[] args) throws Exception {
         int option=1;
         Scanner input =new Scanner(System.in);
-        while(option!=0){
-            Text.BecoDoCarro();
+        while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            System.out.println("Menu");
             System.out.println("\n1 - Gerenciar clientes\n2 - Gerenciar peças\n3 - Gerenciar serviços\n4 - Gerenciar ordens de serviço\n5 - Consultar total vendido em um período\n6 - Sair do programa\n");
             System.out.print("Opção: ");
             option=input.nextInt();
+          
             if(option==1){
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                System.out.println("Gerenciar clientes");
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por CPF\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
                 System.out.print("Opção: ");
                 option=input.nextInt();
+                if(option==6){
+                    option=1;
+                }
 
             }
             if(option==2){
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                System.out.println("Gerenciar peças");
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por código\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
                 System.out.print("Opção: ");
                 option=input.nextInt();
+                if(option==6){
+                    option=1;
+                }
             }
             if(option==3){
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                System.out.println("Gerenciar serviços");
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por código\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
                 System.out.print("Opção: ");
                 option=input.nextInt();
+                if(option==6){
+                    option=1;
+                }
             }
             if(option==4){
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                System.out.println("Gerenciar ordens de serviço");
                 System.out.println("\n1 - Abrir nova ordem de serviço\n2 - Gerenciar itens\n3 - Cancelar\n4 - Finalizar\n5 - Excluir\n6 - Listar todas as ordens\n7 - Voltar");
                 System.out.print("Opção: ");
                 option=input.nextInt();
+                if(option==6){
+                    option=1;
+                }
             }
             /*if(option==5){
-
+                
+                }
             }*/
 
         }
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        System.out.println("______Muito obrigado____\n_________Até logo_______");
 
 
 
