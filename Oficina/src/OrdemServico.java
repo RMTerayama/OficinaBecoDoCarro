@@ -5,7 +5,7 @@ public class OrdemServico {
     String FinalDateOS;
     String LicensePlate;
     String Situation;
-    public class ItemOS{
+    public class itemOS{
         String ItemType;
         Double Price;
         int Amount;

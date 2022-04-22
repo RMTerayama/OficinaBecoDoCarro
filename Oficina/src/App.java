@@ -8,10 +8,9 @@
                                                                                           
 */
 import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) throws Exception {
-        int option=1;
+        int option=0+1;
         Scanner input =new Scanner(System.in);
         while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
