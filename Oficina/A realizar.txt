@@ -1,0 +1,18 @@
+• Inserir um novo cliente na lista de clientes.
+• Inserir uma nova peça na lista de peças.
+• Inserir um novo serviço na lista de serviços.
+• Inserir uma nova ordem de serviço na lista de
+• Inserir um novo item (peça) a uma ordem de serviço.
+• Inserir um novo item (serviço) a uma ordem de
+• Excluir um cliente da lista de clientes.
+• Excluir uma peça da lista de peças.
+• Excluir um serviço da lista de serviços.
+• Excluir uma ordem de serviço da lista de ordens de serviços
+• Excluir um item (peça) de uma ordem de serviço.
+• Excluir um item (serviço) de uma ordem de serviço.
+• Finalizar uma ordem de serviço.
+• Cancelar uma ordem de serviço.
+• Obter a lista de clientes;
+• Obter a lista de peças;
+• Obter a lista de serviços;
+• Obter a lista de ordens de serviço;

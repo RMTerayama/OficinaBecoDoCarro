@@ -7,11 +7,21 @@
  \____/|_| |_|\___|_|_| |_|\__,_| |____/ \___|\___\___/   \__,_|\___/   \_____\__,_|_|  |_|  \___/                                                                                                 
                                                                                           
 */
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
+import Objetos.Cliente;
+import Objetos.OrdemServico;
+import Objetos.Peça;
+import Objetos.Serviços;
 public class App {
     public static void main(String[] args) throws Exception {
-        int option=0+1;
+        int option=1;
         Scanner input =new Scanner(System.in);
+        ArrayList<Cliente>      cliente   = new ArrayList();
+        ArrayList<OrdemServico> OS        = new ArrayList();
+        ArrayList<Serviços>     Serviço   = new ArrayList();
+        ArrayList<Peça>         peça      = new ArrayList();
         while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");

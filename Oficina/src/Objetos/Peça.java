@@ -1,3 +1,4 @@
+package Objetos;
 public class Peça {
     int codPeça;
     String descricao;

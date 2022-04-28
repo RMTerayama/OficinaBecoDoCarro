@@ -1,3 +1,4 @@
+package Objetos;
 import java.util.*;
 public class OrdemServico {
     int OSNumber;
@@ -5,9 +6,10 @@ public class OrdemServico {
     String FinalDateOS;
     String LicensePlate;
     String Situation;
+    ArrayList<itemOS> itemOS = new ArrayList();
     public class itemOS{
-        String ItemType;
-        Double Price;
-        int Amount;
+        String TipoItem;
+        Double Preço;
+        int Quantidade;
     }
 }
