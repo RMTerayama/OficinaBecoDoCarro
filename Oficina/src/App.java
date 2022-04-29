@@ -10,6 +10,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Objects;
+
 import Objetos.Cliente;
 import Objetos.OrdemServico;
 import Objetos.Peça;
@@ -18,12 +20,13 @@ import Classes.ClienteFunção;
 public class App {
     public static void main(String[] args) throws Exception {
         int option=1;
+        int aux;
         Scanner input =new Scanner(System.in);
         ArrayList<Cliente>      cliente   = new ArrayList();
         ArrayList<OrdemServico> OS        = new ArrayList();
         ArrayList<Serviços>     Serviço   = new ArrayList();
         ArrayList<Peça>         peça      = new ArrayList();
-        Cliente ClienteSuporte;
+        Cliente ClienteSuporte= new Cliente();
         while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");
@@ -38,7 +41,14 @@ public class App {
                 System.out.print("Opção: ");
                 option=input.nextInt();
                 if(option==1){
-                   ClienteFunção.Cadastrar();
+                   ClienteFunção.Cadastrar(ClienteSuporte);
+                   cliente.add(ClienteSuporte);
+
+                    aux=cliente.size();
+                   if(    cliente[aux].nome ==null    ){
+ 
+                   }
+
 
                 }
 
