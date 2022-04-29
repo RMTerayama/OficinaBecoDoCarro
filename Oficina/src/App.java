@@ -14,6 +14,7 @@ import Objetos.Cliente;
 import Objetos.OrdemServico;
 import Objetos.Peça;
 import Objetos.Serviços;
+import Classes.ClienteFunção;
 public class App {
     public static void main(String[] args) throws Exception {
         int option=1;
@@ -22,6 +23,7 @@ public class App {
         ArrayList<OrdemServico> OS        = new ArrayList();
         ArrayList<Serviços>     Serviço   = new ArrayList();
         ArrayList<Peça>         peça      = new ArrayList();
+        Cliente ClienteSuporte;
         while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");
@@ -35,12 +37,18 @@ public class App {
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por CPF\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
                 System.out.print("Opção: ");
                 option=input.nextInt();
+                if(option==1){
+                   ClienteFunção.Cadastrar();
+
+                }
+
                 if(option==6){
                     option=1;
                 }
 
             }
             if(option==2){
+                // O comando inserido na linha posterior, é apenas para fins estéticos, ele realiza a limpeza do Promp de comando executando a função "cls"
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 System.out.println("Gerenciar peças");
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por código\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
