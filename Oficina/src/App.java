@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Objects;
+import java.io.*;
+import java.lang.Thread;
+
 
 import Objetos.Cliente;
 import Objetos.OrdemServico;
@@ -20,16 +23,20 @@ import Classes.ClienteFunção;
 public class App {
     public static void main(String[] args) throws Exception {
         int option=1;
-        int aux;
+        int aux=0,i;
+        String cpfauxiliar;
         Scanner input =new Scanner(System.in);
         ArrayList<Cliente>      cliente   = new ArrayList();
         ArrayList<OrdemServico> OS        = new ArrayList();
         ArrayList<Serviços>     Serviço   = new ArrayList();
         ArrayList<Peça>         peça      = new ArrayList();
+
         Cliente ClienteSuporte= new Cliente();
         while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");
+            
+            System.out.printf("Total cliente :%d ",aux);
             System.out.println("\n1 - Gerenciar clientes\n2 - Gerenciar peças\n3 - Gerenciar serviços\n4 - Gerenciar ordens de serviço\n5 - Consultar total vendido em um período\n6 - Sair do programa\n");
             System.out.print("Opção: ");
             option=input.nextInt();
@@ -45,16 +52,20 @@ public class App {
                    cliente.add(ClienteSuporte);
 
                     aux=cliente.size();
-                   if(    cliente[aux].nome ==null    ){
- 
-                   }
-
-
                 }
+                if(option==2){
+                    System.out.println("\n___Pesquisar por CPF___" );
+                    System.out.println("\nInsira o CPF que deseja consultar: " );
+                    cpfauxiliar= input.next();
+                    for(i=0;i>cliente.size();i++){
+                        if(cpfauxiliar==cliente.get(i).cpf.intern());
 
-                if(option==6){
-                    option=1;
+                        System.out.println("encontrado!!");
+                    }
+                    Thread.sleep(5000);
                 }
+                option=1;
+                
 
             }
             if(option==2){

@@ -22,10 +22,8 @@ public class ClienteFunção {
 
         return cliente;
     }
-
-
-    public void ConsultaCPF(){
-
+    public void PrintCliente(Cliente cliente){
+        
     }
 
 
