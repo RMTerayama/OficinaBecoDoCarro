@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.io.*;
 import java.lang.Thread;
 
-
+   
 import Objetos.Cliente;
 import Objetos.OrdemServico;
 import Objetos.Peça;
@@ -22,6 +22,12 @@ import Objetos.Serviços;
 import Classes.ClienteFunção;
 public class App {
     public static void main(String[] args) throws Exception {
+
+    String nometeste;
+    String cpfteste;
+    String endereçoteste;
+    long foneteste;
+
         int option=1;
         int aux=0,i;
         String cpfauxiliar;
@@ -48,10 +54,22 @@ public class App {
                 System.out.print("Opção: ");
                 option=input.nextInt();
                 if(option==1){
-                   ClienteFunção.Cadastrar(ClienteSuporte);
+                    /*
+                    nometeste=input.next();
+                    cpfteste=input.next();
+                    endereçoteste=input.next();
+                    foneteste=input.nextLong();
+                    cliente.
+                    */
+                   ClienteSuporte=ClienteFunção.Cadastrar();
                    cliente.add(ClienteSuporte);
+                 
+                   for(Cliente a: cliente){
+                       System.out.println("\n"+a.nome);
 
-                    aux=cliente.size();
+                   }
+                    Thread.sleep(3000);
+                }
                 }
                 if(option==2){
                     System.out.println("\n___Pesquisar por CPF___" );
@@ -62,8 +80,7 @@ public class App {
 
                         System.out.println("encontrado!!");
                     }
-                    Thread.sleep(5000);
-                }
+                   
                 option=1;
                 
 

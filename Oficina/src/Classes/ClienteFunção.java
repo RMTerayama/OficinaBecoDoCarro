@@ -1,12 +1,14 @@
 package Classes;
 import Objetos.Cliente;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClienteFunção {
     static Scanner input =new Scanner(System.in);
 
-    public static Cliente Cadastrar(Cliente cliente){
+    public static Cliente Cadastrar(){
+        Cliente     cliente   = new Cliente();
         System.out.println("__CADASTRO CLIENTE__");
         System.out.printf("\nInsira o Nome do cliente: ");
         cliente.nome            =input.next();
