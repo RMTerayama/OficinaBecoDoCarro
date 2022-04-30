@@ -4,6 +4,4 @@ public class Cliente {
    public String cpf;
    public String endereço;
    public long fone;
- 
-  
 }
