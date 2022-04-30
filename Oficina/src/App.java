@@ -7,6 +7,7 @@
  \____/|_| |_|\___|_|_| |_|\__,_| |____/ \___|\___\___/   \__,_|\___/   \_____\__,_|_|  |_|  \___/                                                                                                 
                                                                                           
 */
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ import java.util.Objects;
 import java.io.*;
 import java.lang.Thread;
 
-   
+   //importando das classes que estão sendo utilizadas
 import Objetos.Cliente;
 import Objetos.OrdemServico;
 import Objetos.Peça;
@@ -42,7 +43,7 @@ public class App {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");
             
-            System.out.printf("Total cliente :%d ",aux);
+            System.out.printf("Total cliente :%d ",cliente.size());
             System.out.println("\n1 - Gerenciar clientes\n2 - Gerenciar peças\n3 - Gerenciar serviços\n4 - Gerenciar ordens de serviço\n5 - Consultar total vendido em um período\n6 - Sair do programa\n");
             System.out.print("Opção: ");
             option=input.nextInt();
@@ -53,6 +54,7 @@ public class App {
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por CPF\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
                 System.out.print("Opção: ");
                 option=input.nextInt();
+                aux=cliente.size();
                 if(option==1){
                     /*
                     nometeste=input.next();
@@ -63,10 +65,13 @@ public class App {
                     */
                    ClienteSuporte=ClienteFunção.Cadastrar();
                    cliente.add(ClienteSuporte);
-                 
-                   for(Cliente a: cliente){
-                       System.out.println("\n"+a.nome);
-
+                 /*
+                   for(Cliente c: cliente){
+                       System.out.println("\n"+c.nome);
+                   }
+                   */
+                   if(aux<cliente.size()){
+                       System.out.println("Cliente cadastrado com sucesso!!");
                    }
                     Thread.sleep(3000);
                 }
@@ -75,10 +80,16 @@ public class App {
                     System.out.println("\n___Pesquisar por CPF___" );
                     System.out.println("\nInsira o CPF que deseja consultar: " );
                     cpfauxiliar= input.next();
-                    for(i=0;i>cliente.size();i++){
-                        if(cpfauxiliar==cliente.get(i).cpf.intern());
-
-                        System.out.println("encontrado!!");
+                    for(Cliente c: cliente){
+                        if(cpfauxiliar==c.cpf){
+                            System.out.println("_____________________");
+                            System.out.println("NOME: "+c.nome);
+                            System.out.println("CPF: "+c.cpf);
+                            System.out.println("ENDEREÇO: "+c.endereço);
+                            System.out.println("TELEFONE: "+c.fone);
+                            System.out.println("_____________________");
+                            Thread.sleep(3000);
+                        }
                     }
                    
                 option=1;

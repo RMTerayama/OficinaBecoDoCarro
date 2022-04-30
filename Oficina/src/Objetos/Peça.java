@@ -1,7 +1,7 @@
 package Objetos;
 public class Peça {
-    int codPeça;
-    String descricao;
-    double preço;
-    int qtdeEstoque;
+    public int codPeça;
+    public String descricao;
+    public double preço;
+    public int qtdeEstoque;
 }
