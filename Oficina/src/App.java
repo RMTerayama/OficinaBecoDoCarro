@@ -15,19 +15,16 @@ import java.util.Objects;
 import java.io.*;
 import java.lang.Thread;
 
-   //importando das classes que estão sendo utilizadas
+   //importando as classes que estão sendo utilizadas
 import Objetos.Cliente;
 import Objetos.OrdemServico;
 import Objetos.Peça;
 import Objetos.Serviços;
 import Classes.ClienteFunção;
+import Classes.PeçaFunção;
 public class App {
     public static void main(String[] args) throws Exception {
 
-    String nometeste;
-    String cpfteste;
-    String endereçoteste;
-    long foneteste;
 
         int option=1;
         int aux=0,i;
@@ -39,11 +36,12 @@ public class App {
         ArrayList<Peça>         peça      = new ArrayList();
 
         Cliente ClienteSuporte= new Cliente();
+        Peça PeçaSuporte =new Peça();
         while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");
             
-            System.out.printf("Total cliente :%d ",cliente.size());
+            //1System.out.printf("Total cliente :%d ",cliente.size());
             System.out.println("\n1 - Gerenciar clientes\n2 - Gerenciar peças\n3 - Gerenciar serviços\n4 - Gerenciar ordens de serviço\n5 - Consultar total vendido em um período\n6 - Sair do programa\n");
             System.out.print("Opção: ");
             option=input.nextInt();
@@ -56,26 +54,21 @@ public class App {
                 option=input.nextInt();
                 aux=cliente.size();
                 if(option==1){
-                    /*
-                    nometeste=input.next();
-                    cpfteste=input.next();
-                    endereçoteste=input.next();
-                    foneteste=input.nextLong();
-                    cliente.
-                    */
+                 
                    ClienteSuporte=ClienteFunção.Cadastrar();
                    cliente.add(ClienteSuporte);
-                 /*
-                   for(Cliente c: cliente){
-                       System.out.println("\n"+c.nome);
-                   }
-                   */
                    if(aux<cliente.size()){
                        System.out.println("Cliente cadastrado com sucesso!!");
                    }
-                    Thread.sleep(3000);
+                    Thread.sleep(4000);
                 }
                 }
+
+
+
+
+
+
                 if(option==2){
                     System.out.println("\n___Pesquisar por CPF___" );
                     System.out.println("\nInsira o CPF que deseja consultar: " );
@@ -96,6 +89,8 @@ public class App {
                 
 
             }
+
+
             if(option==2){
                 // O comando inserido na linha posterior, é apenas para fins estéticos, ele realiza a limpeza do Promp de comando executando a função "cls"
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -103,9 +98,16 @@ public class App {
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por código\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
                 System.out.print("Opção: ");
                 option=input.nextInt();
-                if(option==6){
-                    option=1;
+                if(option==1){
+                    aux=peça.size();
+                    PeçaSuporte=PeçaFunção.CadastrarPeças();
+                    if(aux<peça.size()){
+                        System.out.println("Peça Cadastrada com sucesso!!");
+                    }
+                    Thread.sleep(4000);
                 }
+                    option=1;
+                
             }
             if(option==3){
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
