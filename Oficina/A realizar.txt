@@ -1,11 +1,9 @@
 Richard
 • Inserir um novo cliente na lista de clientes.    -   Feito
-• Excluir um cliente da lista de clientes.
-• Obter a lista de clientes;
-• Obter a lista de peças;
+• Excluir um cliente da lista de clientes.         -    
+• Obter a lista de clientes;                       -   Feito
+• Obter a lista de peças;                          - 
 • Excluir uma peça da lista de peças.
-
-
 • Inserir uma nova peça na lista de peças.
 • Inserir um novo serviço na lista de serviços.
 • Inserir uma nova ordem de serviço na lista de

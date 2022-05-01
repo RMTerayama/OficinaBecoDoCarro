@@ -9,18 +9,11 @@
 */
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Objects;
-import java.io.*;
 import java.lang.Thread;
-<<<<<<< HEAD
 
-   //importando as classes que estão sendo utilizadas
-=======
-   //test ainwww
+   
    //importando das classes que estão sendo utilizadas
->>>>>>> d28f186b745cd2880656b24b3cc7542e9a5d7172
 import Objetos.Cliente;
 import Objetos.OrdemServico;
 import Objetos.Peça;
@@ -33,7 +26,7 @@ public class App {
 
         int option=1;
         int aux=0,i;
-        String cpfauxiliar;
+        String cpfauxiliar,stringAuxiliar;
         Scanner input =new Scanner(System.in);
         ArrayList<Cliente>      cliente   = new ArrayList();
         ArrayList<OrdemServico> OS        = new ArrayList();
@@ -46,11 +39,11 @@ public class App {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");
             
-            //1System.out.printf("Total cliente :%d ",cliente.size());
+            //System.out.printf("Total cliente :%d ",cliente.size());
             System.out.println("\n1 - Gerenciar clientes\n2 - Gerenciar peças\n3 - Gerenciar serviços\n4 - Gerenciar ordens de serviço\n5 - Consultar total vendido em um período\n6 - Sair do programa\n");
             System.out.print("Opção: ");
             option=input.nextInt();
-          
+          //OPÇÃO 1 MENU PRINCIPAL
             if(option==1){
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 System.out.println("Gerenciar clientes");
@@ -65,36 +58,84 @@ public class App {
                    if(aux<cliente.size()){
                        System.out.println("Cliente cadastrado com sucesso!!");
                    }
-                    Thread.sleep(4000);
+                    Thread.sleep(2000);
                 }
-                }
-
-
-
-
-
-
+                
                 if(option==2){
                     System.out.println("\n___Pesquisar por CPF___" );
                     System.out.println("\nInsira o CPF que deseja consultar: " );
                     cpfauxiliar= input.next();
-                    for(Cliente c: cliente){
-                        if(cpfauxiliar==c.cpf){
-                            System.out.println("_____________________");
-                            System.out.println("NOME: "+c.nome);
-                            System.out.println("CPF: "+c.cpf);
-                            System.out.println("ENDEREÇO: "+c.endereço);
-                            System.out.println("TELEFONE: "+c.fone);
-                            System.out.println("_____________________");
-                            Thread.sleep(3000);
+                    ClienteFunção.PesquisaCpfCliente(cliente, cpfauxiliar);
+                    for(aux=10;aux>=0;aux--){
+                            System.out.print(aux+" ");
+                             Thread.sleep(1000);
                         }
+               
+                }
+                if(option==3){
+                    System.out.println("\n___Excluir cliente___" );
+                    System.out.println("\nInsira o CPF ou o Nome do cliente que deseja excluir" );
+                    stringAuxiliar=input.next();
+                    if(ClienteFunção.ExcluirCliente(stringAuxiliar,cliente)==true){
+                        System.out.println("Foi removido com sucesso !!!");
+                    }else{
+                        System.out.println("Houve um erro, o cliente nao foi removido!!\nVerifique o nome e o CPF e tente novamente.");
+                    }
+                    for(aux=5;aux>=0;aux--){
+                        System.out.print(aux+" ");
+                         Thread.sleep(1000);
+                    }
+                }
+                if(option==4){
+                    System.out.println("\n___Editar cliente___" );
+                    System.out.println("\nInsira o CPF ou o Nome do cliente que deseja editar" );
+                    stringAuxiliar=input.next();
+                    if(ClienteFunção.PesquisaPosiçãoCliente(cliente, stringAuxiliar)==-1){
+                        System.out.println("Cliente nao encontrado!!\nVerifique as informaçoes e tente novamente.");
+                        
+                    }else{
+                        aux=ClienteFunção.PesquisaPosiçãoCliente(cliente, stringAuxiliar);
+                        ClienteSuporte=cliente.get(aux);
+                        System.out.printf(" Cliente: "+ClienteSuporte.getNome()+"\n CPF:"+ClienteSuporte.getCpf()+"\n Endereço:"+ClienteSuporte.getEndereço()+"\n Telefone:"+ClienteSuporte.getFone());
+                        System.out.println("\n Quais informaçoes do usuario você deseja alterar?");
+                        System.out.printf(" Nome.\n Cpf.\n Endereço.\n Telefone.\n Digite a opção: ");
+                        stringAuxiliar=input.next();
+                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                        if(stringAuxiliar.equals("nome") ||stringAuxiliar.equals("Nome") ){
+                            System.out.println("Insira o novo nome: ");
+                            ClienteSuporte.setNome(input.next());
+                        }
+                        if(stringAuxiliar.equals("cpf")||stringAuxiliar.equals("Cpf")){
+                            System.out.println("Insira o novo cpf: ");
+                            ClienteSuporte.setCpf(input.next());
+                            
+                        }
+                        if(stringAuxiliar.equals("endereço")|| stringAuxiliar.equals("Endereço") ){
+                            System.out.println("Insira o novo endereço: ");
+                            ClienteSuporte.setEndereço(input.next());
+                        }
+                        if(stringAuxiliar.equals("telefone")||stringAuxiliar.equals("Telefone") ){
+                            System.out.println("Insira o novo telefone: ");
+                            ClienteSuporte.setFone(input.nextLong());
+                        }
+                        System.out.println("Alteração realizada com sucesso");
+                    }
+                    for(aux=5;aux>=0;aux--){
+                        System.out.print(aux+" ");
+                         Thread.sleep(1000);
+                    }
+                }
+                if(option==5){
+                    System.out.println("\n___LISTAR TODOS OS CADASTROS___\n" );
+                    ClienteFunção.PrintClientes(cliente);
+                    for(aux=10;aux>=0;aux--){
+                        System.out.print(aux+" ");
+                         Thread.sleep(1000);
                     }
                    
-                option=1;
-                
-
-            }
-
+                }
+                 option=1;
+            }//FIM OPÇÃO 1 MENU PRINCIPAL
 
             if(option==2){
                 // O comando inserido na linha posterior, é apenas para fins estéticos, ele realiza a limpeza do Promp de comando executando a função "cls"
@@ -109,7 +150,7 @@ public class App {
                     if(aux<peça.size()){
                         System.out.println("Peça Cadastrada com sucesso!!");
                     }
-                    Thread.sleep(4000);
+                    Thread.sleep(3000);
                 }
                     option=1;
                 
