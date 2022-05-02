@@ -95,29 +95,7 @@ public class Oficina {
                         
                     }else{
                         aux=ClienteFunção.PesquisaPosiçãoCliente(cliente, stringAuxiliar);
-                        ClienteSuporte=cliente.get(aux);
-                        System.out.printf(" Cliente: "+ClienteSuporte.getNome()+"\n CPF:"+ClienteSuporte.getCpf()+"\n Endereço:"+ClienteSuporte.getEndereço()+"\n Telefone:"+ClienteSuporte.getFone());
-                        System.out.println("\n Quais informaçoes do usuario você deseja alterar?");
-                        System.out.printf(" Nome.\n Cpf.\n Endereço.\n Telefone.\n Digite a opção: ");
-                        stringAuxiliar=input.next();
-                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                        if(stringAuxiliar.equals("nome") ||stringAuxiliar.equals("Nome") ){
-                            System.out.println("Insira o novo nome: ");
-                            ClienteSuporte.setNome(input.next());
-                        }
-                        if(stringAuxiliar.equals("cpf")||stringAuxiliar.equals("Cpf")){
-                            System.out.println("Insira o novo cpf: ");
-                            ClienteSuporte.setCpf(input.next());
-                            
-                        }
-                        if(stringAuxiliar.equals("endereço")|| stringAuxiliar.equals("Endereço") ){
-                            System.out.println("Insira o novo endereço: ");
-                            ClienteSuporte.setEndereço(input.next());
-                        }
-                        if(stringAuxiliar.equals("telefone")||stringAuxiliar.equals("Telefone") ){
-                            System.out.println("Insira o novo telefone: ");
-                            ClienteSuporte.setFone(input.nextLong());
-                        }
+                        ClienteFunção.EditarCliente(aux,cliente);
                         System.out.println("Alteração realizada com sucesso");
                     }
                     for(aux=5;aux>=0;aux--){
@@ -178,7 +156,7 @@ public class Oficina {
                 if(option==3){
                     new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     System.out.println("\n___EXCLUIR PEÇA___\n" );
-                    System.out.printf("Insira o coodigoo doo pproduto quue deseja excluir: ");
+                    System.out.printf("Insira o coodigo doo pproduto quue deseja excluir: ");
                     stringAuxiliar=input.next();
                     if(PeçaFunção.ExcluirPeça(stringAuxiliar, peça)==true){
                         System.out.println("Peça Excluida com sucesso");
@@ -219,9 +197,8 @@ public class Oficina {
 
                 }
                     option=1;
-                
             }//FIM DA OPÇÃO 2 DO MENU PRINCIPAL
-            if(option==3){
+            if(option==3){//INICIO DA OPÇÃO 3 DO MENU PRINCIPAL
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 System.out.println("Gerenciar serviços");
                 System.out.println("\n1 - Cadastrar\n2 - Consultar por código\n3 - Excluir\n4 - Editar\n5 - Listar todos os cadastros\n6 - Voltar");
@@ -254,12 +231,26 @@ public class Oficina {
                     }else{
                         System.out.println("Serviço não encontrado");
                     }
-                    for(aux=5;aux>=0;aux--){
+                    for(aux=6;aux>=0;aux--){
                         System.out.print(aux+" ");
                          Thread.sleep(1000);
                     }
                 }
                 if(option==3){
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    System.out.println("\n___EXCLUIR SERVIÇO___\n" );
+                    System.out.printf("Insira o codigo ou a descrição do serviço que deseja excluir: ");
+                    stringAuxiliar=input.next();
+                    if(ServiçoFunção.ExcluirServiço(stringAuxiliar, serviço)==true){
+                        System.out.println("Serviço foi excluido com sucesso");
+                    }else{
+                        System.out.println("Serviço não Excluido\nVerifique o codigo ou a descriçao e tente novamente");
+
+                    }
+                    for(aux=3;aux>=0;aux--){
+                        System.out.print(aux+" ");
+                         Thread.sleep(1000);
+                    }
                     
                 }
                 if(option==4){
@@ -273,11 +264,8 @@ public class Oficina {
                          Thread.sleep(1000);
                     }
                 }   
-
-
-
                 option=1;
-            }
+            }//FIM DA OPÇÃO 3 DO MENU PRINCIPAL
             if(option==4){
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 System.out.println("Gerenciar ordens de serviço");

@@ -44,9 +44,6 @@ public class ServiçoFunção {
         return posição;
     }
 
-
-
-    
     public static void PrintaServiço (ArrayList<Serviços> serviço, int posição){
         Serviços ServiçoAux= new Serviços();
 
@@ -57,7 +54,6 @@ public class ServiçoFunção {
             System.out.println("Tempo de execução: "+ServiçoAux.getTempoExecução());
             System.out.println("_____________________");
     }
-
 
 
     public static void PrintServiços(ArrayList<Serviços> serviços){
@@ -74,6 +70,20 @@ public class ServiçoFunção {
         if(i==-1){
             System.out.println("Nenhum Serviço Cadastrado!!");
         }
+    }
+    public static Boolean ExcluirServiço(String DescriçãoOuCodigo, ArrayList <Serviços> serviço){
+        Boolean i =false;
+        for(Serviços s: serviço)
+            if(DescriçãoOuCodigo.equals(s.getCodServiço()) ||DescriçãoOuCodigo.equals(s.getDescrição())  ){
+                System.out.println("_____________________");
+                System.out.println("DESCRIÇÃO: "+s.getDescrição());
+                System.out.println("CODIGO: "+s.getCodServiço());
+                System.out.println("_____________________");
+                serviço.remove(s);
+                i=true;
+                break;
+            }
+        return i;    
     }
 
 }
