@@ -8,7 +8,7 @@ public class ClienteFunção {
     static Scanner input =new Scanner(System.in);
 
     public static Cliente Cadastrar() throws Exception{
-        Cliente     cliente   = new Cliente();
+        Cliente    cliente   = new Cliente();
         System.out.println("__CADASTRO CLIENTE__");
         System.out.printf("\nInsira o Nome do cliente: ");
         cliente.setNome(input.next());

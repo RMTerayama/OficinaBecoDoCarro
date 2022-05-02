@@ -3,7 +3,10 @@ public class Cliente {
 
 
    private String nome;
-
+   private String cpf;
+   private String endereço;
+   private long fone;
+   
    public String getNome(){
       return nome;
    }
@@ -16,9 +19,6 @@ public class Cliente {
       }
 
    }
-
-   private String cpf;
-
    public String getCpf(){
       return cpf;
    }
@@ -31,11 +31,6 @@ public class Cliente {
          System.out.println("Insira algo no campo: CPF");
       }
    }
-
-
-   private String endereço;
-
-
 
    public String getEndereço(){
       return endereço;
@@ -50,8 +45,6 @@ public class Cliente {
       }
    }
 
-   private long fone;
-public String setNome;
    public long getFone(){
       return fone;
    }
