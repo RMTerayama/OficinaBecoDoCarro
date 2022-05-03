@@ -3,12 +3,11 @@ import java.util.*;
 public class OrdemServico {
     private int numeroOs;
     private Date dataOs;
+    private Date dataPrevTerminoOs;
     private Date dataFinalOs;
     private String placaCarro;
     private char situaçao='A';
     ArrayList<itemOS> itemOS = new ArrayList();
-    ArrayList<Serviços> serviçoOS = new ArrayList();
-    ArrayList<Peça> peçaOS = new ArrayList();
     public int getNumeroOs(){
         return numeroOs;
     }
@@ -32,7 +31,14 @@ public class OrdemServico {
         this.dataFinalOs=dataFinalOs;
     }
 
-    
+
+    public Date getDataPrevTerminoOs(){
+        return dataPrevTerminoOs;
+    }
+    public void setDataPrevTerminoOs(Date dataPrevTerminoOs) throws Exception{
+        this.dataPrevTerminoOs=dataPrevTerminoOs;
+    }
+
     public String getPlacaCarro(){
         return placaCarro;
     }
@@ -62,7 +68,8 @@ public class OrdemServico {
         private char tipoItem;
         private Double preço;
         private int quantidade;
-
+        ArrayList<Serviços> serviçoOS = new ArrayList();
+        ArrayList<Peça> peçaOS = new ArrayList();
 
         public char getTipoItem(){
             return tipoItem;

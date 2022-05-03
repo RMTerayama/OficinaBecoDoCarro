@@ -16,6 +16,7 @@ import Objetos.OrdemServico;
 import Objetos.Peça;
 import Objetos.Serviços;
 import Classes.ClienteFunção;
+import Classes.OSFunção;
 import Classes.PeçaFunção;
 import Classes.ServiçoFunção;
 public class Oficina {
@@ -27,13 +28,14 @@ public class Oficina {
         String cpfauxiliar,stringAuxiliar;
         Scanner input =new Scanner(System.in);
         ArrayList<Cliente>      cliente   = new ArrayList();
-        ArrayList<OrdemServico> OS        = new ArrayList();
+        ArrayList<OrdemServico> os        = new ArrayList();
         ArrayList<Serviços>     serviço   = new ArrayList();
         ArrayList<Peça>         peça      = new ArrayList();
 
-        Cliente ClienteSuporte= new Cliente();
-        Peça PeçaSuporte =new Peça();
-        Serviços ServiçoSuporte= new Serviços();
+        Cliente ClienteSuporte;
+        Peça PeçaSuporte;
+        Serviços ServiçoSuporte;
+        OrdemServico osSuporte;
         while(option!=6){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             System.out.println("Menu");
@@ -268,15 +270,84 @@ public class Oficina {
                     }   
                     option=1;
                 break;//FIM DA OPÇÃO 3 DO MENU PRINCIPAL
-                case(4)://INICIO DA OPÇÃO 4 DO MENU PRI
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    System.out.println("Gerenciar ordens de serviço");
-                    System.out.println("\n1 - Abrir nova ordem de serviço\n2 - Gerenciar itens\n3 - Cancelar\n4 - Finalizar\n5 - Excluir\n6 - Listar todas as ordens\n7 - Voltar");
-                    System.out.print("Opção: ");
-                    option=input.nextInt();
-                    if(option==6){
-                        option=1;
+                case(4)://INICIO DA OPÇÃO 4 DO MENU PRICIPAL
+                    while(option!=7){
+                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                        System.out.println("Gerenciar ordens de serviço");
+                        System.out.println("\n1 - Abrir nova ordem de serviço\n2 - Gerenciar itens\n3 - Cancelar\n4 - Finalizar\n5 - Excluir\n6 - Listar todas as ordens\n7 - Voltar");
+                        System.out.print("Opção: ");
+                        option=input.nextInt();
+                        switch(option){
+
+                            case(1):
+                                //Abrir nova ordem de serviço
+                                aux=os.size();
+                                osSuporte=OSFunção.CadastraOs();
+
+                            break;
+                            
+                            case(2):
+                                //Gerenciar itens
+                                System.out.println("\n1 - Adicionar peça\n2 - Adicionar serviço\n3 - Excluir peça");
+                                System.out.println("\n4 - Excluir serviço\n5 - Consultar total\n6 - Voltar");
+                                System.out.print("\nOpção: ");
+                                option=input.nextInt();
+                                switch(option){
+
+                                    case(1):
+                                    System.out.println("\n1 - Adicionar peça");
+
+                                    break;
+
+                                    case(2):
+                                    System.out.println("\n2 - Adicionar");
+
+                                    break;
+
+                                    case(3):
+                                    System.out.println("\n3 - Excluir peça");
+
+                                    break;
+
+                                    case(4):
+                                    System.out.println("\n4 - Excluir serviço");
+
+                                    break;
+
+                                    case(5):
+                                    System.out.println("\n5 - Consultar total");
+
+                                    break;
+
+                                }
+                            
+                            break;
+                            
+                            case(3):
+                                //Cancelar
+                            
+                            break;
+                            
+                            case(4):
+                                //Finalizar
+                            
+                            break;
+                            
+                            case(5):
+                                //Excluir
+                            
+                            break;
+                            
+                            case(6):
+                                //Listar todas as ordens
+                            
+                            break;
+                        }
                     }
+
+
+
+                        option=1;
                 break;
                 /* case(5):
                     
