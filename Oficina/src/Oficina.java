@@ -65,10 +65,8 @@ public class Oficina {
                     System.out.println("\nInsira o CPF que deseja consultar: " );
                     cpfauxiliar= input.next();
                     ClienteFunção.PesquisaCpfCliente(cliente, cpfauxiliar);
-                    for(aux=10;aux>=0;aux--){
-                            System.out.print(aux+" ");
-                             Thread.sleep(1000);
-                        }
+                    System.out.println ("Clique em quualquuer tecla para continuar... ");
+                    System.in.read ();
                
                 }
                 if(option==3){
@@ -80,7 +78,7 @@ public class Oficina {
                     }else{
                         System.out.println("Houve um erro, o cliente nao foi removido!!\nVerifique o nome e o CPF e tente novamente.");
                     }
-                    for(aux=5;aux>=0;aux--){
+                    for(aux=3;aux>=0;aux--){
                         System.out.print(aux+" ");
                          Thread.sleep(1000);
                     }
@@ -95,10 +93,11 @@ public class Oficina {
                         
                     }else{
                         aux=ClienteFunção.PesquisaPosiçãoCliente(cliente, stringAuxiliar);
-                        ClienteFunção.EditarCliente(aux,cliente);
+                        ClienteSuporte=cliente.get(aux);
+                        ClienteFunção.EditarCliente(ClienteSuporte);
                         System.out.println("Alteração realizada com sucesso");
                     }
-                    for(aux=5;aux>=0;aux--){
+                    for(aux=3;aux>=0;aux--){
                         System.out.print(aux+" ");
                          Thread.sleep(1000);
                     }
@@ -107,10 +106,8 @@ public class Oficina {
                 if(option==5){
                     System.out.println("\n___LISTAR TODOS OS CADASTROS___\n" );
                     ClienteFunção.PrintClientes(cliente);
-                    for(aux=10;aux>=0;aux--){
-                        System.out.print(aux+" ");
-                         Thread.sleep(1000);
-                    }
+                    System.out.println ("Clique em quualquuer tecla para continuar... ");
+                    System.in.read ();
                    
                 }
                  option=1;
@@ -134,36 +131,31 @@ public class Oficina {
                     }else{
                         System.out.println("Houve um erro ao cadastrar a peça!!");
                     }
-                    for(aux=3;aux>=0;aux--){
-                        System.out.print(aux+" ");
-                         Thread.sleep(1000);
-                    }
+                    System.out.println ("Clique em quualquer tecla para continuar... ");
+                    System.in.read ();
                 }
                 if(option==2){
                     new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     System.out.println("\n___CONSULTAR POR CODIGO___\n" );
                     System.out.printf("\nInsira o codigo da peça que deseja pesquisar: " );
                     stringAuxiliar=input.next();
-                    posição=EcontraPeça(peça,stringAuxiliar);
-                    PeçaFunção.PrintPeça(peça, posição);
-                    for(aux=5;aux>=0;aux--){
-                        System.out.print(aux+" ");
-                         Thread.sleep(1000);
-                    }
-
-                    
+                    posição=PeçaFunção.EcontraPeça(peça,stringAuxiliar);
+                    PeçaSuporte=peça.get(posição);
+                    PeçaFunção.PrintPeça(PeçaSuporte);
+                    System.out.println ("Clique em quualquer tecla para continuar... ");
+                    System.in.read ();
                 }
                 if(option==3){
                     new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     System.out.println("\n___EXCLUIR PEÇA___\n" );
-                    System.out.printf("Insira o coodigo doo pproduto quue deseja excluir: ");
+                    System.out.printf("Insira o coodigo doo produto quue deseja excluir: ");
                     stringAuxiliar=input.next();
                     if(PeçaFunção.ExcluirPeça(stringAuxiliar, peça)==true){
                         System.out.println("Peça Excluida com sucesso");
                     }else{
                         System.out.println("Peça não Excluida\nVerifique o coodigo e tente novamente");
                     }
-                    for(aux=5;aux>=0;aux--){
+                    for(aux=3;aux>=0;aux--){
                         System.out.print(aux+" ");
                          Thread.sleep(1000);
                     }
@@ -173,16 +165,16 @@ public class Oficina {
                     System.out.println("\n___EDITAR PEÇA___" );
                     System.out.printf("\nInsira o codigo do produto que deseja modificar: " );
                     stringAuxiliar=input.next();
-                    posição=EcontraPeça (peça,stringAuxiliar);
+                    posição=PeçaFunção.EcontraPeça (peça,stringAuxiliar);
                     if(posição!=-1){
-                        PeçaFunção.PrintPeça(peça, posição);
-                        PeçaFunção.EditarPeça(posição, peça);
+                        PeçaSuporte=peça.get(posição);
+                        PeçaFunção.EditarPeça(PeçaSuporte);
                         System.out.println("Peça alterada com sucesso!!");
 
                     }else{
                         System.out.println("Peça não econtrada\nVerifique o coodigo e tente novamente");
                     }
-                    for(aux=5;aux>=0;aux--){
+                    for(aux=3;aux>=0;aux--){
                         System.out.print(aux+" ");
                          Thread.sleep(1000);
                     }
@@ -190,10 +182,8 @@ public class Oficina {
                 if(option==5){
                     System.out.println("\n___LISTAR TODAS AS PEÇAS___\n" );
                     PeçaFunção.PrintTodasPeças(peça);
-                    for(aux=10;aux>=0;aux--){
-                        System.out.print(aux+" ");
-                         Thread.sleep(1000);
-                    }
+                    System.out.println ("Clique em quualquuer tecla para continuar... ");
+                    System.in.read ();
 
                 }
                     option=1;
@@ -227,16 +217,16 @@ public class Oficina {
 
                     posição= ServiçoFunção.EcontraServiço(serviço,stringAuxiliar);
                     if(posição!=-1){
-                        ServiçoFunção.PrintaServiço(serviço, posição);
+                        ServiçoSuporte=serviço.get(posição);
+                        ServiçoFunção.PrintaServiço(ServiçoSuporte);
                     }else{
                         System.out.println("Serviço não encontrado");
                     }
-                    for(aux=6;aux>=0;aux--){
-                        System.out.print(aux+" ");
-                         Thread.sleep(1000);
-                    }
+                    System.out.println ("Clique em quualquuer tecla para continuar... ");
+                    System.in.read ();
                 }
                 if(option==3){
+
                     new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     System.out.println("\n___EXCLUIR SERVIÇO___\n" );
                     System.out.printf("Insira o codigo ou a descrição do serviço que deseja excluir: ");
@@ -254,15 +244,26 @@ public class Oficina {
                     
                 }
                 if(option==4){
+                    System.out.printf("Insira o codigo ou a descrição do serviço que deseja editar: ");
+                    stringAuxiliar=input.next();
+                    aux=ServiçoFunção.EcontraServiço(serviço,stringAuxiliar);
+                    if(aux!=-1){
+                        ServiçoSuporte=serviço.get(aux); 
+                        ServiçoFunção.EditarServiço(ServiçoSuporte); 
+                    }else{
+                        System.out.println("Serviço nao encontrado");
+                    }
+                    for(aux=3;aux>=0;aux--){
+                        System.out.print(aux+" ");
+                         Thread.sleep(1000);
+                    }
                     
                 }   
                 if(option==5){
                     System.out.println("\n___LISTAR TODOS OS SERVIÇOS___\n" );
                     ServiçoFunção.PrintServiços(serviço);
-                    for(aux=5;aux>=0;aux--){
-                        System.out.print(aux+" ");
-                         Thread.sleep(1000);
-                    }
+                    System.out.println ("Clique em quualquuer tecla para continuar... ");
+                    System.in.read ();
                 }   
                 option=1;
             }//FIM DA OPÇÃO 3 DO MENU PRINCIPAL
@@ -285,13 +286,6 @@ public class Oficina {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("______Muito obrigado____\n_________Até logo_______");
 
-
-
-
-
     }
 
-    private static int EcontraPeça(ArrayList<Peça> peça, String stringAuxiliar) {
-        return 0;
-    }
 }

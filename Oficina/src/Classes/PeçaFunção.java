@@ -42,6 +42,7 @@ public class PeçaFunção {
         int posição=-1;
         for (Peça p: peça){
             if(codigo.equals(p.getCodPeça())){
+                ++posição;
                 break;
             }
             ++posição;
@@ -49,9 +50,8 @@ public class PeçaFunção {
         return posição;
     }
 
-    public static void PrintPeça(ArrayList <Peça> peça,int posição){
-        Peça peçaAuxiliar= new Peça();
-        peçaAuxiliar=peça.get(posição);
+    public static void PrintPeça(Peça peçaAuxiliar){
+        
         System.out.println("Descrição da peça: "+peçaAuxiliar.getDescricao());
         System.out.println("Codigo doo produto: "+peçaAuxiliar.getCodPeça());
         System.out.println("Valor do produto: "+peçaAuxiliar.getPreço());
@@ -73,29 +73,34 @@ public class PeçaFunção {
             }
             return i;
     }
-    public static void EditarPeça(int  posição, ArrayList<Peça> peça) throws Exception{
-       Peça peçaAuxiliar= new Peça();
-        String opção;
-        peçaAuxiliar=(peça.get(posição));
-        System.out.println("\n Quais informaçoes do usuario você deseja alterar?");
-        System.out.printf(" Codigo.\n Descrição.\n Valor.\n Quantidade.\n Digite a opção: ");
-        opção=input.next();
-        if(opção.equals("codigo")||opção.equals("Codigo") ){
+    public static void EditarPeça(Peça peçaAuxiliar) throws Exception{
+        
+        int opção;
+        System.out.println("1 - Codigo de serviço: "+peçaAuxiliar.getCodPeça());
+        System.out.println("2 - Descrição: "+peçaAuxiliar.getDescricao());
+        System.out.println("3 - Preço: "+peçaAuxiliar.getPreço());
+        System.out.println("4 - Quantidade em estoque: "+peçaAuxiliar.getQtdeEstoque());
+        System.out.println("_____________________");
+        System.out.println("\n Quais informaçoes da peça você deseja alterar?");
+        opção=input.nextInt();
+        switch(opção){
+        case(1):
             System.out.printf("Insira o novo codigo: ");
             peçaAuxiliar.setCodPeça(input.next());
 
-        }
-        if(opção.equals("Descrição")||opção.equals("descrição") ){
+        break;
+        case(2):
             System.out.printf("Insira a nova descrição do produto: ");
             peçaAuxiliar.setDescriçao(input.next());
-        }
-        if(opção.equals("Valor")||opção.equals("valor") ){
+        break;
+        case(3):
             System.out.printf("Insira o novo valor da peça:");
             peçaAuxiliar.setPreço(input.nextDouble());
-        }
-        if(opção.equals("Quantidade")||opção.equals("quantidade") ){
+        break;
+        case(4):
             System.out.printf("Insira a nova quantidade que o estoque possui: ");
-            peçaAuxiliar.setQtdeEstoque(input.nextInt());;
+            peçaAuxiliar.setQtdeEstoque(input.nextInt());
+        break;
         }
     }
 }

@@ -80,10 +80,9 @@ public class ClienteFunção {
         }
         return aux;
     }
-    public static void EditarCliente(int posição,ArrayList<Cliente> cliente) throws Exception{
-        Cliente ClienteSuporte =new Cliente();
+    public static void EditarCliente(Cliente ClienteSuporte) throws Exception{
+        
         int op;
-        ClienteSuporte=(cliente.get(posição));
         System.out.println("1)- NOME: "+ClienteSuporte.getNome());
         System.out.println("2)- CPF: "+ClienteSuporte.getCpf());
         System.out.println("3)- ENDEREÇO: "+ClienteSuporte.getEndereço());
@@ -93,22 +92,23 @@ public class ClienteFunção {
         System.out.println("\n Quais informaçoes do usuario você deseja alterar?");
         System.out.printf("\n Digite a opção: ");
         op=input.nextInt();
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+    
+
         if(op==1 ){
-        System.out.println("Insira o novo nome: ");
+        System.out.println("\nInsira o novo nome: ");
         ClienteSuporte.setNome(input.next());
         }
         if(op==2){
-        System.out.println("Insira o novo cpf: ");
+        System.out.println("\nInsira o novo cpf: ");
             ClienteSuporte.setCpf(input.next());
                             
         }
         if(op==3 ){
-            System.out.println("Insira o novo endereço: ");
+            System.out.println("\nInsira o novo endereço: ");
             ClienteSuporte.setEndereço(input.next());
         }
         if(op==4 ){
-            System.out.println("Insira o novo telefone: ");
+            System.out.println("\nInsira o novo telefone: ");
             ClienteSuporte.setFone(input.nextLong());
         }
     }
