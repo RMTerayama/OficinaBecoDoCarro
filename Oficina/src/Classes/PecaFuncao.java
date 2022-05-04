@@ -25,16 +25,16 @@ public class PecaFuncao {
     
 
     public static void PrintTodasPecas(ArrayList<Peca> peca){
-        int i=-1;
+        Boolean i=false;
         for(Peca p: peca){
             System.out.println("Descrição da peça: "+p.getDescricao());
-            System.out.println("Codigo doo produto: "+p.getCodPeca());
+            System.out.println("Codigo do produto: "+p.getCodPeca());
             System.out.println("Valor do produto: "+p.getPreco());
             System.out.println("Quantidade que o estoque possui: "+p.getQtdeEstoque());
             System.out.println("_____________________");
-            i++;
+            i=true;
         }
-        if(i==-1){
+        if(i==false){
             System.out.print("Não há nenhum produto cadastrado");
         }
     }
@@ -51,7 +51,7 @@ public class PecaFuncao {
     }
 
     public static void PrintPeca(Peca pecaAuxiliar){
-        
+        System.out.println("\n_____________________");
         System.out.println("Descrição da peça: "+pecaAuxiliar.getDescricao());
         System.out.println("Codigo doo produto: "+pecaAuxiliar.getCodPeca());
         System.out.println("Valor do produto: "+pecaAuxiliar.getPreco());

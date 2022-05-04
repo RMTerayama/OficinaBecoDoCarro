@@ -4,6 +4,8 @@ import Objetos.Servicos;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
+/*Esse metodo realiza a implementação das informaçoes no "serviços" devolvendo ela na main, dessa forma realizando a função add no 
+    ArrayList principal utilizado para armazenar as informaçoes*/
 public class ServicoFuncao {
     static Scanner input =new Scanner(System.in);
     public static Servicos CadastrarServico() throws Exception{
@@ -17,7 +19,6 @@ public class ServicoFuncao {
 
         System.out.printf("\nInsira o Codigo de serviço: ");
         servico.setCodServico(input.next());
-
 
         System.out.printf("\nInsira o preço do serviço: ");
         servico.setPreco(input.nextDouble());
@@ -45,7 +46,10 @@ public class ServicoFuncao {
         return posicao;
     }
     //aux=ServiçoFunção.EcontraServiço(serviço,stringAuxiliar);
-
+ /* recebe o arraylist serviços como parametro de entrada e realiza uma varredura por todo o arraylist de servicos, printando todos com o metodo get
+    a variavel i é apenas para controle da execução, ele é inicializado com o valor "false" caso seja printado algum servico é passado true para ele se no final do laço
+     ele continuar com o valor false, 
+    significa que no arraylist de servicos nao há nenhum servicos cadastrado,dessa forma, é printado a mensagem dizendo que nenhum servicos esta presente no arraylist*/
     public static void PrintaServico (Servicos ServicoAux){
         System.out.println("Codigo de serviço: "+ServicoAux.getCodServico());
             System.out.println("Descrição: "+ServicoAux.getDescricao());
@@ -54,21 +58,24 @@ public class ServicoFuncao {
             System.out.println("_____________________");
     }
 
+
     public static void PrintServicos(ArrayList<Servicos> servicos){
-        int i=-1;
+        Boolean i=false;
         for(Servicos s: servicos){
             System.out.println("Codigo de serviço: "+s.getCodServico());
             System.out.println("Descrição: "+s.getDescricao());
             System.out.println("Preço: "+s.getPreco());
             System.out.println("Tempo de execução: "+s.getTempoExecucao());
             System.out.println("_____________________");
-            i++;
+            i=true;
 
         }
-        if(i==-1){
+        if(i==false){
             System.out.println("Nenhum Serviço Cadastrado!!");
         }
     }
+      /*Reliza uma varredura pelo arraylist servico,comparando uma varivale que foi passado como parametro, nela pode ter sido inserido tanto o codigo quando a descrição do servico
+    a saida desse meotodo é um valor boolean, para a verificação na main, caso ele encontre o servico, é utilizado a função remove na posição do servico desejado */
     public static Boolean ExcluirServico(String DescricaoOuCodigo, ArrayList <Servicos> servico){
         Boolean i =false;
         for(Servicos s: servico)
@@ -83,6 +90,7 @@ public class ServicoFuncao {
             }
         return i;    
     }
+    
     public static void EditarServico(Servicos servico) throws Exception{
         int opcao;
         LocalTime time;

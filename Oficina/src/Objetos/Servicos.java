@@ -2,6 +2,8 @@ package Objetos;
 import java.time.LocalTime;
 
 public class Servicos {
+    /*Declaração das variaveiis do tipo privado e a manipulaçao das mesmas utilizando os metodos get e set,
+    para gerenciamento sobre o acesso dos atributos e conseguindo determinar quando o atributo sera alterado*/
     private String codServico;
     private String descricao;
     private double preco;
@@ -10,6 +12,7 @@ public class Servicos {
     public String getCodServico(){
         return codServico;
     }
+    /*Verica se o codi*/ 
     public void setCodServico(String codServico)throws Exception{
         int qtdeNumerosDigitos= codServico.trim().split("").length;
         if(qtdeNumerosDigitos<1){
@@ -30,8 +33,6 @@ public class Servicos {
             this.descricao=descricao;
         }
     } 
-
-
     public double getPreco(){
         return preco;
     }

@@ -1,13 +1,21 @@
 package Objetos;
 import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import java.util.*;
+/*Declaração das variaveiis do tipo privado e a manipulaçao das mesmas utilizando os metodos get e set,
+para gerenciamento sobre o acesso dos atributos e conseguindo determinar quando o atributo sera alterado*/
 public class OrdemServico {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private int numeroOs;
-    private Date dataOs;
-    private Date dataPrevTerminoOs;
-    private Date dataFinalOs;
+    private LocalDate dataOs;
+    private LocalDate dataPrevTerminoOs;
+    private LocalDate dataFinalOs;
     private String placaCarro;
-    private char situacao='A';
+    private char situacao;
+
     ArrayList<itemOS> itemOS;
 
     public int getNumeroOs(){
@@ -20,25 +28,26 @@ public class OrdemServico {
             this.numeroOs=numeroOs;
         }
     }
-    public Date getDataOs(){
+    public LocalDate getDataOs(){
         return dataOs;
     }
-    public void setDataOs(Date dataOS) throws Exception{
-        this.dataOs=dataOs;
-    }
-
-    public Date getDataFinalOs(){
+    public void setDataOs() throws Exception{
+        
+        //String hojeFormatado = hoje.format(formatter);
+        this.dataOs=LocalDate.now();
+    }      
+    public LocalDate getDataFinalOs(){
         return dataFinalOs;
     }
-    public void setDataFinalOs(Date dataFinalOs) throws Exception{
-        this.dataFinalOs=dataFinalOs;
+    public void setDataFinalOs(LocalDate dataFinalOs) throws Exception{
+       if(Character.compare(situacao, 'F')==0){
+        this.dataFinalOs=LocalDate.now();
     }
-
-
-    public Date getDataPrevTerminoOs(){
+    }
+    public LocalDate getDataPrevTerminoOs(){
         return dataPrevTerminoOs;
     }
-    public void setDataPrevTerminoOs(Date dataPrevTerminoOs) throws Exception{
+    public void setDataPrevTerminoOs(LocalDate dataPrevTerminoOs) throws Exception{
         this.dataPrevTerminoOs=dataPrevTerminoOs;
     }
 
@@ -53,14 +62,12 @@ public class OrdemServico {
             this.placaCarro=placaCarro;
         }
     }
-
-
     public char getSituacao(){
         return situacao;
     }
     public void setSituacao(char situacao) throws Exception{
         
-        if(Character.compare(situacao, 'A')!=0 || Character.compare(situacao, 'C')!=0 || Character.compare(situacao, 'F')!=0){
+        if(situacao!='A' || situacao!='C' || situacao!='F'){
             System.out.println("Situaçao invalida");
         }else{
             this.situacao=situacao;
@@ -80,11 +87,9 @@ public class OrdemServico {
         }
         public void setTipoItem(char tipoItem) throws Exception{
             
-            if(Character.compare(tipoItem, 'P')!=0 || Character.compare(tipoItem, 'S')!=0 ){
-                System.out.println("Situaçao invalida");
-            }else{
+
                 this.tipoItem=tipoItem;
-            }
+            
         }
 
         public Double getPreco(){

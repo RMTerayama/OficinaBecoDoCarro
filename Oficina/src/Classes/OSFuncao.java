@@ -8,10 +8,11 @@ public class OSFuncao {
     public static OrdemServico CadastraOs() throws Exception{
         OrdemServico os =new OrdemServico();
         System.out.printf("\nInsira o numero da Ordem de Serviço: ");
-        System.out.printf("\nInsira a placa doo carro: ");
-
-
+        os.setNumeroOs(input.nextInt());
+        System.out.printf("\nInsira a placa do carro: ");
+        os.setPlacaCarro(input.next());
+        os.setDataOs();
+        os.setSituacao('A');
         return os;
-    }
-    
+    }    
 }

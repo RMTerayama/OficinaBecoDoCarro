@@ -1,5 +1,7 @@
 package Objetos;
 public class Peca {
+    /*Declaração das variaveiis do tipo privado e a manipulaçao das mesmas utilizando os metodos get e set,
+    para gerenciamento sobre o acesso dos atributos e conseguindo determinar quando o atributo sera alterado*/
     private String codPeca;
     private String descricao;
     private double preco;
