@@ -1,41 +1,41 @@
 package Objetos;
-public class Peça {
-    private String codPeça;
-    private String descriçao;
-    private double preço;
+public class Peca {
+    private String codPeca;
+    private String descricao;
+    private double preco;
     private int qtdeEstoque;
 
-    public String getCodPeça(){
-        return codPeça;
+    public String getCodPeca(){
+        return codPeca;
     }
-    public void setCodPeça(String codPeça) throws Exception{
-        int qtdeNumerosDigitos= codPeça.trim().split("").length;
+    public void setCodPeca(String codPeca) throws Exception{
+        int qtdeNumerosDigitos= codPeca.trim().split("").length;
         if(qtdeNumerosDigitos<1){
             System.out.println("erro");
         }else{
-            this.codPeça=codPeça;
+            this.codPeca=codPeca;
         }
     }
     public String getDescricao(){
-        return descriçao;
+        return descricao;
     }
-    public void setDescriçao(String descricao) throws Exception{
+    public void setDescricao(String descricao) throws Exception{
         int qtdeNumerosDigitos= descricao.trim().split("").length;
         if(qtdeNumerosDigitos<1){
             System.out.println("erro");
         }else{
-            this.descriçao=descricao;
+            this.descricao=descricao;
         }
     }
     
-    public Double getPreço(){
-        return preço;
+    public Double getPreco(){
+        return preco;
     }
-    public void setPreço(Double preço) throws Exception{
-        if(preço<=0){
+    public void setPreco(Double preco) throws Exception{
+        if(preco<=0){
             System.out.println("erro");
         }else{
-            this.preço=preço;
+            this.preco=preco;
         }
     }
 

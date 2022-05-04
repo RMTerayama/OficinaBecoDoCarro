@@ -1,4 +1,5 @@
 package Objetos;
+import java.time.LocalDateTime;
 import java.util.*;
 public class OrdemServico {
     private int numeroOs;
@@ -6,8 +7,9 @@ public class OrdemServico {
     private Date dataPrevTerminoOs;
     private Date dataFinalOs;
     private String placaCarro;
-    private char situaçao='A';
-    ArrayList<itemOS> itemOS = new ArrayList();
+    private char situacao='A';
+    ArrayList<itemOS> itemOS;
+
     public int getNumeroOs(){
         return numeroOs;
     }
@@ -21,9 +23,10 @@ public class OrdemServico {
     public Date getDataOs(){
         return dataOs;
     }
-    public void setDataOs(Date dataOs) throws Exception{
+    public void setDataOs(Date dataOS) throws Exception{
         this.dataOs=dataOs;
     }
+
     public Date getDataFinalOs(){
         return dataFinalOs;
     }
@@ -52,24 +55,24 @@ public class OrdemServico {
     }
 
 
-    public char getSituaçao(){
-        return situaçao;
+    public char getSituacao(){
+        return situacao;
     }
-    public void setSituaçao(char situaçao) throws Exception{
+    public void setSituacao(char situacao) throws Exception{
         
-        if(Character.compare(situaçao, 'A')!=0 || Character.compare(situaçao, 'C')!=0 || Character.compare(situaçao, 'F')!=0){
+        if(Character.compare(situacao, 'A')!=0 || Character.compare(situacao, 'C')!=0 || Character.compare(situacao, 'F')!=0){
             System.out.println("Situaçao invalida");
         }else{
-            this.situaçao=situaçao;
+            this.situacao=situacao;
         }
     }
 
     public class itemOS{
         private char tipoItem;
-        private Double preço;
+        private Double preco;
         private int quantidade;
-        ArrayList<Serviços> serviçoOS = new ArrayList();
-        ArrayList<Peça> peçaOS = new ArrayList();
+        Servicos servicoOS;
+        Peca pecaOS;
 
         public char getTipoItem(){
             return tipoItem;
@@ -84,16 +87,16 @@ public class OrdemServico {
             }
         }
 
-        public Double getPreço(){
-            return preço;
+        public Double getPreco(){
+            return preco;
 
         }
-        public void setPreço(Double preço) throws Exception{
+        public void setPreco(Double preco) throws Exception{
             
-            if(preço<=0){
+            if(preco<=0){
                 System.out.println("Valor invalida");
             }else{
-                this.preço=preço;
+                this.preco=preco;
             }
         }
         public int getQuantidade(){

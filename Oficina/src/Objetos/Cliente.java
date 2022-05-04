@@ -1,10 +1,8 @@
 package Objetos;
 public class Cliente {
-
-
    private String nome;
    private String cpf;
-   private String endereço;
+   private String endereco;
    private long fone;
    
    public String getNome(){
@@ -32,19 +30,18 @@ public class Cliente {
       }
    }
 
-   public String getEndereço(){
-      return endereço;
+   public String getEndereco(){
+      return endereco;
    }
 
-   public void setEndereço(String endereço) throws Exception{
+   public void setEndereco(String endereco) throws Exception{
       if(cpf!=null){
-         this.endereço=endereço;
+         this.endereco=endereco;
 
       }else{
          System.out.println("Insira algo no campo: Endereço");
       }
    }
-
    public long getFone(){
       return fone;
    }
